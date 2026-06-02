@@ -13,7 +13,7 @@
   font-style: normal;
 }
 @font-face {
-  font-family: fonstars;
+  font-family: 'fonstars';
   src: url('fonts/passagewaybd.otf');
   font-weight: normal;
   font-style: normal;
@@ -32,40 +32,51 @@ body {
   background: #111;
   color: #eee;
   font-family: 'kozuka', sans-serif;
+  background-image: url('images/f40.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
-  display: flex;         
-  flex-direction: row;   
-justify-content: center;
-  gap: 20px;              
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 1200px) {
-  .container {
+  .row {
     flex-direction: column;
+    align-items: center;
   }
 }
 
 .box {
-  flex: 1;                
+  flex: 1 1 calc(49%);
+  max-width: calc(47% - 10px);
+  min-width: 250px;
   padding: 20px;
   background-color: rgba(0, 0, 0, .5);
   backdrop-filter: blur(10px);
-  border-radius: 6px;
-  text-align: center;
-  max-width: 900px
-  
+  border-radius: 20px;
+  text-align: center; /* add this */
 }
 
 .box2 {
-  flex: 1;                
+  flex: 1;
   padding: 20px;
   background-color: rgba(0, 0, 0, .5);
   backdrop-filter: blur(10px);
-  border-radius: 6px;
+  border-radius: 20px;
   text-align: center;
-  max-width: 1600px
+  max-width: 1600px;
 }
 
 details > summary {
@@ -75,93 +86,68 @@ details > summary {
 }
 
 details > summary::-webkit-details-marker {
-  display: none; 
+  display: none;
 }
 
 details[open] > summary::before {
-  content: "▼ "; 
+  content: "▼ ";
 }
 
 details > summary::before {
-  content: "▶ "; 
+  content: "▶ ";
 }
+
 .box img {
-  width: 100%;      
-  height: auto;     
-  display: block;   
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 #intro {
   display: flex;
-  align-items: center;      /* vertically center text and image */
+  align-items: center;
   justify-content: center;
-  gap: 20px;                /* space between text and image */
-  flex-wrap: wrap;          /* allow wrapping on small screens */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 #intro-text {
-  flex: 1 1 600px;          /* grow and shrink, min width 300px */
+  flex: 1 1 600px;
 }
 
 #intro-image {
-  flex: 0 0 auto;         /* don’t force width */
-  max-width: 600px;       /* max width limit */
-  width: 100%;            /* let it shrink responsively */
-  height: auto;           /* keep aspect ratio */
+  flex: 0 0 auto;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
   border-radius: 25px;
 }
 
 #box-image {
-   flex: 0 0 auto;         /* don’t force width */
-  max-width: 200px;       /* max width limit */
-  width: 100%;            /* let it shrink responsively */
-  height: auto; 
+  flex: 0 0 auto;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
 }
 
-/* Responsive: stack vertically on narrow screens */
-@media (max-width: 1600px) {
-   {
-    flex-direction: column;
-    align-items: center; /* left align text and image */
-  }
-
-  #intro-image {
-    width: 100%;             /* image full width on small screens */
-    flex: none;
-    margin-top: 10px;
-  }
- #pc-photo {
-    width: 10%;             /* image full width on small screens */
-    flex: none;
-    margin-top: 10px;
-    text-align: center;
-    max-width: 100px;
-  }
+#pc-photo {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 6px;
 }
-body {
-  background-image: url('images/f40.jpg');
-    background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
- background-position: center;
-}
-
-
 a:link {
   color: lightseagreen;
 }
 
-/* visited link */
 a:visited {
   color: hotpink;
 }
 
-/* mouse over link */
 a:hover {
   color: whitesmoke;
 }
 
-/* selected link */
 a:active {
   color: black;
 }
